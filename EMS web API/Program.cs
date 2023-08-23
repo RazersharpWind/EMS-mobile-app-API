@@ -12,6 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<ISqlDataAccess, SqlDataAccess>();
 builder.Services.AddSingleton<IEventData, EventData>();
+builder.Services.AddSingleton<IUserData, UserData>();
 builder.Services.AddSingleton<IAttendeeData, AttendeeData>();
 
 var app = builder.Build();

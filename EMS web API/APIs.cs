@@ -8,10 +8,17 @@ public static class APIs
     public static void ConfigureApi(this WebApplication app)
     {
         //All of the API endpoint mapping
+        //Event API routes
         app.MapGet("/Events", GetEvents);
         app.MapGet("/Events/{id}", GetEvent);
         app.MapPost("/Events", CreateEvent);
         app.MapPut("/Events", UpdateEvent);
+
+        //User API routes
+        app.MapGet("/Users", GetUsers);
+        app.MapGet("/Users/{id}", GetUser);
+        app.MapPost("/Users", CreateUser);
+        app.MapPut("/Users", UpdateUser);
     }
 
     private static async Task<IResult> GetEvents(IEventData data)
@@ -58,6 +65,59 @@ public static class APIs
         try
         {
             await data.UpdateEvent(newEvent);
+            return Results.Ok();
+        }
+        catch (Exception ex)
+        {
+            return Results.Problem(ex.Message);
+        }
+    }
+
+    //user API calls
+    private static async Task<IResult> GetUsers(IUserData data)
+    {
+        try
+        {
+            return Results.Ok(await data.GetUsers());
+        }
+        catch (Exception ex)
+        {
+            return Results.Problem(ex.Message);
+        }
+    }
+
+    private static async Task<IResult> GetUser(int id, IUserData data)
+    {
+        try
+        {
+            var result = await data.GetUser(id);
+            if (result == null) return Results.NotFound();
+            return Results.Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return Results.Problem(ex.Message);
+        }
+    }
+
+    private static async Task<IResult> CreateUser(User_with_eID newUser, IUserData data)
+    {
+        try
+        {
+            await data.InsertUser(newUser);
+            return Results.Ok();
+        }
+        catch (Exception ex)
+        {
+            return Results.Problem(ex.Message);
+        }
+    }
+
+    private static async Task<IResult> UpdateUser(User_with_eID newUser, IUserData data)
+    {
+        try
+        {
+            await data.UpdateUser(newUser);
             return Results.Ok();
         }
         catch (Exception ex)
