@@ -38,7 +38,8 @@ public class EventData : IEventData
                 singleEvent.Event_name,
                 singleEvent.Event_description,
                 singleEvent.Event_date,
-                singleEvent.Event_image
+                singleEvent.Event_image,
+                
             });
 
     public Task UpdateEvent(Event user) =>

@@ -6,4 +6,8 @@ public class Event
     public string Event_description { get; set; } = string.Empty;
     public DateTime Event_date { get; set; }
     public string Event_image { get; set; } = string.Empty;
+    public string Event_time { get; set; } = string.Empty;    
+    public string Event_location { get; set; } = string.Empty;    
+
+    public string Event_category { get; set; } = string.Empty;    
 }
