@@ -19,6 +19,9 @@ public static class APIs
         app.MapGet("/Users/{id}", GetUser);
         app.MapPost("/Users", CreateUser);
         app.MapPut("/Users", UpdateUser);
+
+        //Login API route
+        app.MapPost("/Login", Login);
     }
 
     private static async Task<IResult> GetEvents(IEventData data)
@@ -119,6 +122,20 @@ public static class APIs
         {
             await data.UpdateUser(newUser);
             return Results.Ok();
+        }
+        catch (Exception ex)
+        {
+            return Results.Problem(ex.Message);
+        }
+    }
+
+    private static async Task<IResult> Login(string email, string password, IUserData data)
+    {
+        try
+        {
+            var result = data.Login(email, password);
+            if (result.Result == 1) return Results.Ok();
+            return Results.Unauthorized();
         }
         catch (Exception ex)
         {

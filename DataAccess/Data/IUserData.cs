@@ -7,4 +7,5 @@ public interface IUserData
     Task<IEnumerable<User_with_eID>> GetUsers();
     Task InsertUser(User_with_eID user);
     Task UpdateUser(User_with_eID user);
+    Task<int?> Login(string email, string password);
 }

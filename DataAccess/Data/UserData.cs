@@ -40,4 +40,13 @@ public class UserData : IUserData
 
     public Task UpdateUser(User_with_eID user) =>
         _db.SaveData(storedProcedure: "dbo.UserWitheID_Update", user);
+
+    public async Task<int?> Login(string email, string password)
+    {
+        var result = await _db.LoadData<int, dynamic>(
+            storedProcedure: "dbo.Login",
+            new { email = email, password = password });
+
+        return result.FirstOrDefault();
+    }
 }
