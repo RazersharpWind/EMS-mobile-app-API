@@ -10,4 +10,5 @@ public class User_with_eID
     public string Email { get; set; } = string.Empty;
     public string AlternateEmail { get; set; } = string.Empty;
     public string CountryOfResidence { get; set; } = string.Empty;
+    public string password { get; set; } = string.Empty;
 }

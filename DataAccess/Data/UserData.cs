@@ -35,7 +35,8 @@ public class UserData : IUserData
                 user.PhoneNumber,
                 user.Email,
                 user.AlternateEmail,
-                user.CountryOfResidence
+                user.CountryOfResidence,
+                user.password
             });
 
     public Task UpdateUser(User_with_eID user) =>
