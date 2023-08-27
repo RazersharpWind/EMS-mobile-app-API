@@ -1,8 +1,8 @@
 ﻿using DataAccess.DBAccess;
 using DataAccess.Models;
 
-//Here I am using SqlDataAccess to GetUsers, GetUser, InsertUser, and UpdateUser.
 namespace DataAccess.Data;
+
 public class UserData : IUserData
 {
     private readonly ISqlDataAccess _db;
@@ -31,7 +31,8 @@ public class UserData : IUserData
                 user.EmiratesIDNum,
                 user.DOB,
                 user.EmiratesIDExpiry,
-                user.FullName,
+                user.first_name,
+                user.last_name,                
                 user.PhoneNumber,
                 user.Email,
                 user.AlternateEmail,
@@ -42,9 +43,9 @@ public class UserData : IUserData
     public Task UpdateUser(User_with_eID user) =>
         _db.SaveData(storedProcedure: "dbo.UserWitheID_Update", user);
 
-    public async Task<int?> Login(string email, string password)
+    public async Task<User_with_eID?> Login(string email, string password)
     {
-        var result = await _db.LoadData<int, dynamic>(
+        var result = await _db.LoadData<User_with_eID, dynamic>(
             storedProcedure: "dbo.Login",
             new { email = email, password = password });
 

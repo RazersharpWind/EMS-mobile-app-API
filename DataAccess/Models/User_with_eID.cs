@@ -5,8 +5,9 @@ public class User_with_eID
     public long EmiratesIDNum { get; set; }
     public DateTime DOB { get; set; }
     public DateTime EmiratesIDExpiry { get; set; }
-    public string FullName { get; set; } = string.Empty;
-    public int PhoneNumber { get; set; }
+    public string first_name { get; set; } = string.Empty;
+    public string last_name { get; set; } = string.Empty;
+    public string PhoneNumber { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
     public string AlternateEmail { get; set; } = string.Empty;
     public string CountryOfResidence { get; set; } = string.Empty;

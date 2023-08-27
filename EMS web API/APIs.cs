@@ -129,17 +129,26 @@ public static class APIs
         }
     }
 
-    private static async Task<IResult> Login(string email, string password, IUserData data)
+private static async Task<IResult> Login(string email, string password, IUserData data)
+{
+    try
     {
-        try
+        var user = await data.Login(email, password); // Await the task to get the user data
+        if (user != null)
         {
-            var result = data.Login(email, password);
-            if (result.Result == 1) return Results.Ok();
+            return Results.Ok(user);
+        }
+        else
+        {
             return Results.Unauthorized();
         }
-        catch (Exception ex)
-        {
-            return Results.Problem(ex.Message);
-        }
     }
+    catch (Exception ex)
+    {
+        return Results.Problem(ex.Message);
+    }
+}
+
+
+
 }
