@@ -22,6 +22,9 @@ public static class APIs
 
         //Login API route
         app.MapPost("/Login", Login);
+
+        //API route that will update the attendee status
+        app.MapPost("/UpdateAttendeeStatus", SetAttendeeStatus);
     }
 
     private static async Task<IResult> GetEvents(IEventData data)
@@ -129,26 +132,36 @@ public static class APIs
         }
     }
 
-private static async Task<IResult> Login(string email, string password, IUserData data)
-{
-    try
+    private static async Task<IResult> Login(string email, string password, IUserData data)
     {
-        var user = await data.Login(email, password); // Await the task to get the user data
-        if (user != null)
+        try
         {
-            return Results.Ok(user);
+            var user = await data.Login(email, password); // Await the task to get the user data
+            if (user != null)
+            {
+                return Results.Ok(user);
+            }
+            else
+            {
+                return Results.Unauthorized();
+            }
         }
-        else
+        catch (Exception ex)
         {
-            return Results.Unauthorized();
+            return Results.Problem(ex.Message);
         }
     }
-    catch (Exception ex)
+
+    private static async Task<IResult> SetAttendeeStatus(string email, int eventID, string status, IAttendeeData data)
     {
-        return Results.Problem(ex.Message);
+        try
+        {
+            await data.SetAttendeeStatus(email, eventID, status);
+            return Results.Ok();
+        }
+        catch (Exception ex)
+        {
+            return Results.Problem(ex.Message);
+        }
     }
-}
-
-
-
 }

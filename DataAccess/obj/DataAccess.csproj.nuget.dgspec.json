@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "E:\\BackendGCAA2\\EMS-mobile-app-API-main\\DataAccess\\DataAccess.csproj": {}
+    "D:\\Uni stuff\\Research Outreach with Dr.Manar\\Event Management system\\code\\EMS web API\\DataAccess\\DataAccess.csproj": {}
   },
   "projects": {
-    "E:\\BackendGCAA2\\EMS-mobile-app-API-main\\DataAccess\\DataAccess.csproj": {
+    "D:\\Uni stuff\\Research Outreach with Dr.Manar\\Event Management system\\code\\EMS web API\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\BackendGCAA2\\EMS-mobile-app-API-main\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "D:\\Uni stuff\\Research Outreach with Dr.Manar\\Event Management system\\code\\EMS web API\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "E:\\BackendGCAA2\\EMS-mobile-app-API-main\\DataAccess\\DataAccess.csproj",
-        "packagesPath": "C:\\Users\\omarn\\.nuget\\packages\\",
-        "outputPath": "E:\\BackendGCAA2\\EMS-mobile-app-API-main\\DataAccess\\obj\\",
+        "projectPath": "D:\\Uni stuff\\Research Outreach with Dr.Manar\\Event Management system\\code\\EMS web API\\DataAccess\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\abdul\\.nuget\\packages\\",
+        "outputPath": "D:\\Uni stuff\\Research Outreach with Dr.Manar\\Event Management system\\code\\EMS web API\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\omarn\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\abdul\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -67,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.413\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
