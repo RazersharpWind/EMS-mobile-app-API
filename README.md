@@ -1,2 +1,3 @@
 # EMS-web-API
- This repo contains the REST API code for the GCAA mobile app
+ This project is a backend API for an Event Management System mobile app.
+ This project was developed using ASP.NET Web API, C#, and Microsoft SQL.
